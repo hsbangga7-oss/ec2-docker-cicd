@@ -93,6 +93,27 @@ Real-time Grafana dashboard tracking 8 infrastructure metrics:
 - Container restart count
 - System uptime
 
+### Grafana Docker Monitoring
+![Grafana Docker](screenshots/grafana-docker-monitoring.png)
+
+### Grafana Node Exporter
+![Node Exporter](screenshots/grafana-node-exporter-dashboard.png)
+
+### Prometheus Targets
+![Prometheus](screenshots/prometheus-targets.png)
+
+### GitHub Actions Pipeline
+![CI/CD Pipeline](screenshots/github-actions.png)
+
+### Live App Running
+![App Running](screenshots/app-running.png)
+
+### EC2 Instance
+![EC2](screenshots/ec2-instance.png)
+
+### Docker Containers
+![Docker](screenshots/docker-containers.png)
+
 ## 🏗️ Infrastructure as Code (Terraform)
 
 All AWS infrastructure is defined as code — no manual console clicks required.
