@@ -7,15 +7,15 @@ resource "aws_security_group" "app_sg" {
   name        = "ec2-docker-sg"
   description = "Security group for Docker app"
 
-  # Allow SSH from my IP only
+  # SSH
   ingress {
     from_port   = 22
     to_port     = 22
     protocol    = "tcp"
-    cidr_blocks = [var.my_ip]
+    cidr_blocks = ["0.0.0.0/0"]
   }
 
-  # Allow HTTP traffic
+  # HTTP traffic
   ingress {
     from_port   = 80
     to_port     = 80
@@ -23,7 +23,7 @@ resource "aws_security_group" "app_sg" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 
-  # Allow Grafana dashboard
+  # Grafana dashboard
   ingress {
     from_port   = 3000
     to_port     = 3000
@@ -31,7 +31,7 @@ resource "aws_security_group" "app_sg" {
     cidr_blocks = [var.my_ip]
   }
 
-  # Allow Prometheus
+  # Prometheus
   ingress {
     from_port   = 9090
     to_port     = 9090
@@ -39,7 +39,7 @@ resource "aws_security_group" "app_sg" {
     cidr_blocks = [var.my_ip]
   }
 
-  # Allow all outbound traffic
+  # all outbound traffic
   egress {
     from_port   = 0
     to_port     = 0
