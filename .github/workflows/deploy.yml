@@ -39,11 +39,11 @@ jobs:
 
           # Install Docker if missing
           if ! command -v docker >/dev/null 2>&1; then
-          sudo apt install -y docker.io docker-compose-plugin
+          sudo apt install -y docker.io 
+          sudo apt install -y docker-compose
           sudo systemctl enable docker
           sudo systemctl start docker
           sudo usermod -aG docker ubuntu
-          sudo systemctl restart docker
           fi
 
           # Install Nginx if missing
