@@ -35,13 +35,14 @@ jobs:
         key: ${{ secrets.EC2_KEY }}
         script: |
           sudo apt update -y
+          
 
           # Install Docker if missing
           if ! command -v docker >/dev/null 2>&1; then
-          sudo apt-get install -y docker.io
+          sudo apt install -y docker.io docker-compose-plugin
           sudo systemctl enable docker
           sudo systemctl start docker
-          sudo usermod - aG docker ubuntu
+          sudo usermod -aG docker ubuntu
           sudo systemctl restart docker
           fi
 
@@ -86,3 +87,15 @@ jobs:
             --restart always \
             -p 5000:5000 \
             ${{ secrets.DOCKER_USERNAME }}/pythonapp:latest
+          
+          # Deploy Monitoring
+          if [ ! -d ~/ec2-docker-cicd ]; then
+          git clone https://github.com/hsbangga7-oss/ec2-docker-cicd.git ~/ec2-docker-cicd
+          else
+          cd ec2-docker-cicd
+          git pull origin main
+          fi
+         
+          cd ec2-docker-cicd/monitoring
+          sudo docker-compose pull || true
+          sudo docker-compose up -d
