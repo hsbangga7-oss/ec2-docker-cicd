@@ -97,5 +97,5 @@ jobs:
           fi
          
           cd ec2-docker-cicd/monitoring
-          sudo docker-compose pull || true
-          sudo docker-compose up -d
+          sudo docker compose pull || true
+          sudo docker compose up -d
