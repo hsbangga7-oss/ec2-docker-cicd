@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+  workflow_dispatch:
 
 jobs:
   build-and-deploy:
@@ -40,6 +41,8 @@ jobs:
           sudo apt-get install -y docker.io
           sudo systemctl enable docker
           sudo systemctl start docker
+          sudo usermod - aG docker ubuntu
+          sudo systemctl restart docker
           fi
 
           # Install Nginx if missing
