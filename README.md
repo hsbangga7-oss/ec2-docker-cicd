@@ -189,13 +189,13 @@ ec2-docker-cicd/
 ├── nginx/
 │   └── nginx.conf          # Reverse proxy config
 ├── monitoring/
-│   └──prometheus.yml      # Scrape config
+│   ├──prometheus.yml      # Scrape config
+│   └── docker-compose.yml # Monitoring Services
 ├── screenshots/           # Screenshots of working project
 ├── terraform/
 │   ├── main.tf             # EC2 + security group
 │   ├── variables.tf        # Config variables
 │   └── outputs.tf          # IP and SSH command
-├── docker-compose.yml      # All services together
 ├── .github/
 │   └── workflows/
 │       └── deploy.yml      # CI/CD pipeline
@@ -216,16 +216,6 @@ ec2-docker-cicd/
 - The difference between container networking on localhost vs EC2
 - Why Infrastructure as Code matters — rebuilding the whole environment takes 2 minutes with Terraform vs hours manually
 - How to think about monitoring proactively, not just after things break
-
----
-
-## 🔜 Planned Improvements
-
-- [ ] Add Kubernetes deployment with Minikube
-- [ ] Add HTTPS with Let's Encrypt
-- [ ] Add Grafana alerting (Slack notifications on high CPU)
-- [ ] Add Terraform remote state with S3 backend
-- [ ] Add automated testing stage to CI/CD pipeline
 
 ---
 
